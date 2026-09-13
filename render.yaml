@@ -1,7 +1,9 @@
 services:
   - type: web
     name: rust-geolocator
-    runtime: docker
+    runtime: rust
     plan: free
     healthCheckPath: /swagger-ui/
     autoDeploy: true
+    buildCommand: cargo build --release
+    startCommand: ./target/release/rust-ip-geolocator
